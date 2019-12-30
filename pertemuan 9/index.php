@@ -1,16 +1,8 @@
 <?php 
-$conn=mysqli_connect(
-"localhost",
-"root",
-"",
-"phpdasar"
-);
+require 'functions.php';
+$mahasiswa=query("SELECT * FROM mahasiswa");
 
-$result=mysqli_query(
-$conn, "SELECT * FROM mahasiswa");
-// while($mhs=mysqli_fetch_assoc($result)){
-// var_dump($mhs["nama"]);
-// }
+
  ?>
 
 
@@ -33,8 +25,7 @@ $conn, "SELECT * FROM mahasiswa");
 
 		</tr>
 		<?php $i=1; ?>
-		<?php while ($row=mysqli_fetch_assoc($result)):
-		  ?>
+		<?php foreach ($mahasiswa as $row): ?>
 		<tr>
 			<td><?php  echo $i?></td>
 			<td>
@@ -48,7 +39,7 @@ $conn, "SELECT * FROM mahasiswa");
 			<td> <?php echo $row["jurusan"]; ?></td>
 		</tr>
 		<?php $i++; ?>
-	<?php endwhile; ?>
+	<?php endforeach; ?>
 
 	</table>
 
