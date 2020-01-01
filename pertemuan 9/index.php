@@ -32,7 +32,8 @@ $mahasiswa=query("SELECT * FROM mahasiswa");
 			<td><?php  echo $i?></td>
 			<td>
 				<a href="">Ubah</a>|
-				<a href="">hapus</a>
+				<a href="hapus.php?id=<?php echo $row["id"] ?>" onclick="
+				return confrim('yakin');">hapus</a>
 			</td>
 			<td><img src="img/<?php echo $row["gambar"] ?>" width="50"></td> 
 			<td> <?php echo $row["nrp"]; ?></td>

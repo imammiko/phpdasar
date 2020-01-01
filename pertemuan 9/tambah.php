@@ -1,7 +1,30 @@
 <?php 
+require 'functions.php';
 if (isset($_POST["submit"])) {
-	var_dump($_POST);	# code...
+	if(tambah($_POST)>0){
+		echo "
+		<script>
+			alert('data berhasil ditambahkan!');
+			document.location.href='index.php';
+		
+		</script>
+		";
+	} else{
+		echo "
+		<script>
+		alert('data gagal ditambahkan');
+		document.location.href='index.php';
+		
+		</script>";
+	}
+	
+
+
+	
+	  
 }
+
+
 
  ?>
 
@@ -17,11 +40,16 @@ if (isset($_POST["submit"])) {
 	<ul>
 		<li>
 			<label for="nrp">nrp: </label>
-			<input type="text" name="nrp" id="nrp">
+			<input type="text" name="nrp" id="nrp"
+			required>
 		</li>
 		<li>
 			<label for="nama">Nama: </label>
 			<input type="text" name="nama" id="nama">
+		</li>
+		<li>
+			<label for="jurusan">Nama: </label>
+			<input type="text" name="jurusan" id="jurusan">
 		</li>
 		<li>
 			<label for="email">Email:  </label>
@@ -31,7 +59,7 @@ if (isset($_POST["submit"])) {
 			<label for="gambar">Gambar: </label>
 			<input type="text" name="gambar" id="gambar">
 		</li>
-		<li><button type="submint" name="submit">tambah data</button></li>
+		<li><button type="submit" name="submit">tambah data</button></li>
 	</ul>
 
 	
